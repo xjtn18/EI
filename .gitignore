@@ -1,3 +1,7 @@
 *.swp
-tags
 *~
+tags
+UserSettings/
+Logs/
+Packages/
+Library/
