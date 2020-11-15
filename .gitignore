@@ -1,5 +1,6 @@
 *.swp
 *~
+git-push.sh
 tags
 UserSettings/
 Logs/
