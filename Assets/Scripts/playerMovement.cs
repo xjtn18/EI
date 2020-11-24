@@ -4,13 +4,15 @@ using UnityEngine;
 
 
 //This script handles movement and actions of the player.
-public class playerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //Initializing and defining variables
 
     public float walkSpeed; //Default: 4f? Subject to change
+    public Monster testMonster;
     private SpriteRenderer playerSpriteRenderer;
     private Animator playerAnimator;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +38,11 @@ public class playerMovement : MonoBehaviour
             playerSpriteRenderer.flipX = false;
         }
 
-        if (Input.GetKeyDown("j"))
+        if (Input.GetKeyDown(testMonster.keyText.text.ToLower()))
         {
             playerAnimator.SetTrigger("Attack");
-            //Debug.Log(" DOING ANIMATION");
+       
+            Debug.Log("DOING ANIMATION");
     
         }
 

@@ -42,7 +42,6 @@ public class MonsterMovement : MonoBehaviour
         {
             float comp_dist = tmp.enemy_pos.x - transform.position.x;
             
-
             if (comp_dist > 1f)
                 directionVal = 1.0f;
             else if (comp_dist < 1f)
