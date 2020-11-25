@@ -11,7 +11,7 @@ public class TargetController : MonoBehaviour
     public bool target_locked = false;
     public GameObject target = null;
     public Vector2 enemy_pos = new Vector2(0f, 0f);
-    public float positionOffset = 2f;
+    public float positionOffset = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,9 @@ public class TargetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject[] tmp = GameObject.FindGameObjectsWithTag("Player");
+        if (tmp.Length == 0)
+            no_more_enemy = true;
         if (no_more_enemy == false)
         {
             if (target_locked == false)
@@ -39,7 +42,6 @@ public class TargetController : MonoBehaviour
             else
             {
                 enemy_pos = DetermineStopPoint(target);
-                //enemy_pos = new Vector2(target.transform.position.x, target.transform.position.y);
 
             }
         }
@@ -88,7 +90,7 @@ public class TargetController : MonoBehaviour
 
         else if (comp_dist < 0)
         {
-            enemy_pos = new Vector2(target.transform.position.x + positionOffset, target.transform.position.y);
+            enemy_pos = new Vector2(target.transform.position.x , target.transform.position.y);
         }
 
         return enemy_pos;
