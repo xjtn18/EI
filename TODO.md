@@ -18,6 +18,7 @@ Make GameOver UI look better/more appealing
 
 
 THINGS TO NOTE
+
 GameOver UI is in the Hierarchy under OverlayUI. Tick the box in the inspector to view it
 When playing the game, press "G" to make player lose lives. Screen should pop up when lives reaches 0, (I set health to 1 under Player object, you should just need to press it once).
 Buttons in the GameOver screen are already clickable, but right now they only output a debug statement in the console.
