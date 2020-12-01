@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         // "A" and "D" movement keys to move left and right (may remove later)
-        // "J" for attack
+        // "J, K, L" for attack as of right now
 
         if (Input.GetKey("a"))
         {
