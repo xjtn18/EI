@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     public bool attackStarted = false;
     public string keyPressed;
     private bool hasAlreadyAttacked = false;
+	private static string[] swordSounds = {"swoosh1", "swoosh2", "swoosh3", "swoosh4"};
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,9 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+
+		AudioManager.PlaySound("sword_hit");
+		AudioManager.PlayRandom(swordSounds);
     }
 
     public bool canStartAttack()

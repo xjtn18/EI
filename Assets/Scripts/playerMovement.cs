@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+
         //Move this part of the script somewehere else later
         monsterList = GameObject.FindGameObjectsWithTag("Monster");
         List<string> keyTextList = new List<string>();
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         // "A" and "D" movement keys to move left and right (may remove later)
         // "J" for attack
+
         if (Input.GetKey("a"))
         {
             transform.Translate(Vector2.left * Time.deltaTime * walkSpeed, Space.World);
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(Vector2.right * Time.deltaTime * walkSpeed, Space.World);
             playerSpriteRenderer.flipX = false;
         }
+
 
         foreach(string validKey in keyTextList)
         {
