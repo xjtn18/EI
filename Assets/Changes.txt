@@ -1,0 +1,24 @@
+# Changed playerMovement script to PlayerMovement, also fixed in actual script to conform to form of other documentation.
+# Combined PlayerMovement Scripts together
+	Updated PlayerMovement code for attackking
+
+# Combined MonsterDamage into Monster script
+	 Renamed hurt() function to TakeDamage()
+
+# Combined MonsterMovement script
+
+# Added box collider and PlayerAttack script to player
+
+# Fixed attack logic so that it only works if correct key is pressed
+
+# Attempted to make code easier to read
+# Commented code files
+
+# Fixed bug with key showing up too early if monster approached from the right side
+
+# Added new variable "CorrectKey" to PlayerAttack to check if the correct key was pressed before killing monster
+	Loop reflects this change
+
+# Made WaveController into it's own GameObject, separating it from Spawner.
+	#This change is reflected in the code.
+	
