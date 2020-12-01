@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.swp
 *~
 git-push.sh
@@ -6,3 +7,12 @@ UserSettings/
 Logs/
 Packages/
 Library/
+=======
+*.csproj
+*.sln
+tags
+UserSettings
+Logs
+Packages
+Library
+>>>>>>> 89a36c5e0d8d1642c723eab104381ca39577565f
