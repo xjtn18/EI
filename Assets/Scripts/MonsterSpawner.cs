@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MonsterSpawner : MonoBehaviour
 {
     //May want to implement using Corountine method
@@ -12,8 +12,7 @@ public class MonsterSpawner : MonoBehaviour
     // Start is called before the first frame update
 
     void Start()
-    {
-   
+    { 
         monsterSprite = monster.GetComponent<SpriteRenderer>();
         waveController = waveController.GetComponent<WaveController>();
     }

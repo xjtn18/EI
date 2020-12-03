@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     public int health = 1;
+    public float attackDelay = 10;
+    public float timer = 99;
 
     [Header("UI Elements")]
     public Image keyBackground;
@@ -12,13 +14,15 @@ public class Monster : MonoBehaviour
     public GameObject[] targetArray;
     List<string> keyTextList = new List<string> { "J", "K", "L" };
 
+
     // Start is called before the first frame update
     //Chooses a random string to assign to each monster. This string will be what the player needs to press
     //to deal damage to them.
     void Start()
     { 
+
         int index = Random.Range(0, keyTextList.Count);
-        keyText.text = keyTextList[index];
+        keyText.text = keyTextList[index];      
         targetArray = GameObject.FindGameObjectsWithTag("Player");
     }
 
@@ -41,7 +45,24 @@ public class Monster : MonoBehaviour
                 {
                     keyBackground.enabled = true;
                     keyText.enabled = true;
+
+                    if (Mathf.Abs(comp_dist) <= 1.5)
+                    {
+                        if (timer > attackDelay)
+                        {
+                            StartCoroutine(DoAttack());
+                            timer = 0;
+                        }
+                        else
+                        {
+                            timer += Time.deltaTime;
+                        }
+                      
+                        
+                        
+                    }
                 }
+
                 else
                 {
                     keyBackground.enabled = false;
@@ -61,6 +82,14 @@ public class Monster : MonoBehaviour
     public string GetKey()
     {
         return keyText.text.ToLower();
+    }
+
+    private IEnumerator DoAttack()
+    {
+        yield return new WaitForSeconds(2);
+        PlayerInfo.health--;
+        Debug.Log(PlayerInfo.health.ToString());
+        
     }
 
 }

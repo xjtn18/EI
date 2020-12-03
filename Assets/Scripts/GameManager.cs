@@ -31,10 +31,11 @@ public class GameManager : MonoBehaviour
             PlayerInfo.health--;
             //Debug statement
             Debug.Log(PlayerInfo.health.ToString());
-            if (PlayerInfo.health == 0)
-            {
-                GameOver();
-            }
+        }
+
+        if (PlayerInfo.health == 0)
+        {
+            GameOver();
         }
     }
 
