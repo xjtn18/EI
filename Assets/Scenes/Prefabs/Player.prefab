@@ -117,7 +117,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9faf97790426c745b26c1cbae41c366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 0
+  startingHealth: 3
+  heartsArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &6928298271122221250
 Animator:
   serializedVersion: 3
@@ -175,3 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7b2d8ce9524f2439174493efaad0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 10
+  playerSpriteRenderer: {fileID: 0}
+  monsterList: []
