@@ -512,11 +512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-<<<<<<< HEAD
   m_AnchoredPosition: {x: 134, y: 115}
-=======
-  m_AnchoredPosition: {x: 457, y: 309.8}
->>>>>>> 31a9f91c1c9a5a42e08b0e84f71f097f9f032266
   m_SizeDelta: {x: 800, y: 204.58554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &438915257
@@ -722,7 +718,6 @@ GameObject:
   - component: {fileID: 752847745}
   - component: {fileID: 752847744}
   - component: {fileID: 752847743}
-  - component: {fileID: 752847747}
   m_Layer: 0
   m_Name: MainAudio
   m_TagString: Untagged
@@ -1320,18 +1315,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &752847747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752847739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1df7ac1a2492e4e824c9c042d9fed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &791460446
 GameObject:
   m_ObjectHideFlags: 0

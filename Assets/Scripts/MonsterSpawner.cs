@@ -9,17 +9,12 @@ public class MonsterSpawner : MonoBehaviour
     public SpriteRenderer monsterSprite;
     //public Monster monsterReversed;
     public WaveController waveController;
-	private float waveSpawnChance = 0.8f;
-	private float minMonsterSpeed = 1.5f;
-	private float maxMonsterSpeed = 4.5f;
-	
-
     // Start is called before the first frame update
+
     void Start()
     { 
         monsterSprite = monster.GetComponent<SpriteRenderer>();
         waveController = waveController.GetComponent<WaveController>();
-		Random.seed = System.DateTime.Now.Millisecond;
     }
 
     // Update is called once per frame
@@ -27,12 +22,10 @@ public class MonsterSpawner : MonoBehaviour
     void Update()
     {
         
-        if (waveController.getMonstersAlive() <= 1 && GameObject.FindGameObjectsWithTag("Player").Length == 1)
+        if (waveController.getMonstersAlive() <= 0 && GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
-			float randomNumber = Random.Range(0, 1.0f);
-			if (randomNumber >= waveSpawnChance)
-				waveController.startWave();
-				spawnMonsters(waveController.getMonstersAlive());
+            waveController.startWave();
+            spawnMonsters(waveController.getMonstersAlive());
         }
     }
 
@@ -51,14 +44,14 @@ public class MonsterSpawner : MonoBehaviour
                 pos.x -= trueXWidth + i * 2;
                 monsterSprite.flipX = false;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
-                monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
+                monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(0.5f, 2.5f);
             }
             else
             {
                 pos.x += trueXWidth + i * 2;
                 monsterSprite.flipX = true;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
-                monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
+                monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(0.5f, 2.5f);
             }
        
 
