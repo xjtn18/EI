@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 11849434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b100f7a63574d3a4e9c09672a04c4613, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dba82b0cda594644bc2d2d3f60f8c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 11849434}
@@ -2333,10 +2333,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7762223358828023533, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
-      propertyPath: walkSpeed
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8972365993632081936, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
       propertyPath: heartsArray.Array.data[0]
       value: 
@@ -2349,14 +2345,6 @@ PrefabInstance:
       propertyPath: heartsArray.Array.data[2]
       value: 
       objectReference: {fileID: 1606642883}
-    - target: {fileID: 8972365993632081936, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
-      propertyPath: fullHeart
-      value: 
-      objectReference: {fileID: 21300000, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
-    - target: {fileID: 8972365993632081936, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
-      propertyPath: emptyHeart
-      value: 
-      objectReference: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
 --- !u!1001 &2390015277384935510

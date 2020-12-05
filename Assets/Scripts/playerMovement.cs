@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer playerSpriteRenderer;
     public GameObject[] monsterList;
     private Animator playerAnimator;
-    
+
 
 
     // Start is called before the first frame update
@@ -39,9 +39,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 keyTextList.Add(monster.GetComponent<Monster>().GetKey());
             }
-            
+
         }
-        
+
 
         // "A" and "D" movement keys to move left and right (may remove later)
         // "J, K, L" for attack as of right now
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        foreach(string validKey in keyTextList)
+        foreach (string validKey in keyTextList)
         {
             if (Input.GetKeyDown(validKey))
             {
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
                     //Debug.Log(" DOING ANIMATION");
                 }
             }
-            
+
 
         }
     }

@@ -7,3 +7,5 @@ Added HealthUI to the game. Code for this is located within the PlayerInfo file.
 Added new scene that contains Titlecard with light blue background. (Need to put more work in to animate)
 
 Moved all new art assets into the project directory.
+
+Added background for battleScene and adjusted background for main menu.
