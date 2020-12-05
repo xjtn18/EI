@@ -15,11 +15,13 @@ public class AudioManager {
 
 	// Start is called before the first frame update
 	static AudioManager() {
-		channels = GameObject.Find("MainAudio").GetComponents<AudioSource>();
+		GameObject mainAudio = GameObject.Find("MainAudio");
+		channels = mainAudio.GetComponents<AudioSource>();
 		
 		// set channel 0 for game music
 		//PlaySoundOn("hapi_tomi", 0, 0.05f, true); // music
 		PlaySoundOn("outdoor_ambience", 1, 0.2f, true);
+		PlaySoundOn("major_theme", 1, 0.2f, true);
 
 	}
 
