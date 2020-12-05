@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour
     public Image[] heartsArray;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+	public int bodyCount; // number of enemies killed; higher numbers can mean faster monsters
 
     // Start is called before the first frame update
     void Start()
