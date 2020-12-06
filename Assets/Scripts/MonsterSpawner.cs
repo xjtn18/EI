@@ -20,7 +20,7 @@ public class MonsterSpawner : MonoBehaviour
         monsterSprite = monster.GetComponent<SpriteRenderer>();
         waveController = waveController.GetComponent<WaveController>();
 		Random.seed = System.DateTime.Now.Millisecond;
-    }
+    }       
 
     // Update is called once per frame
     //Determines whether or not to spawn monsters
@@ -36,7 +36,7 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    void spawnMonsters(int numMonsters)
+    void spawnMonsters(float numMonsters)
     {
         for (int i = 0; i < numMonsters; i++)
         {

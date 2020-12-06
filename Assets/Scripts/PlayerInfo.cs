@@ -9,6 +9,8 @@ public class PlayerInfo : MonoBehaviour
     //Initializing variables
     public static int health;
     public int startingHealth;
+    public static int score;
+    public int startingScore;
     public Image[] heartsArray;
     public Sprite fullHeart;
     public Sprite emptyHeart;
@@ -17,6 +19,7 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         health = startingHealth;
+        score = startingScore;
     }
 
     // Update is called once per frame

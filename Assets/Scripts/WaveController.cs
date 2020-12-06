@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    private int wave = 0;
-    private int waveMax = 10;
-    private int monstersAlive = 0;
+    private int wave = -1;
+    private float monstersAlive = 0;
 
     private bool gameStarted = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,14 +33,6 @@ public class WaveController : MonoBehaviour
     {
         wave = 0;
     }
-    public void setWaveMAx(int val)
-    {
-        waveMax = val;
-    }
-    public int getWaveMax()
-    {
-        return waveMax;
-    }
     public void setGame(bool val)
     {
         gameStarted = val;
@@ -50,14 +41,14 @@ public class WaveController : MonoBehaviour
     {
         return gameStarted;
     }
-
     public void setMonstersAlive(int val)
     {
         monstersAlive = val;
     }
-    public int getMonstersAlive()
+    public float getMonstersAlive()
     {
-        return monstersAlive;
+        
+        return Mathf.Ceil(monstersAlive);
     }
     public void decrMonstersAlive()
     {
@@ -66,6 +57,7 @@ public class WaveController : MonoBehaviour
 
     public void startWave()
     {
-        monstersAlive = 2;
+        wave++;
+        monstersAlive = Mathf.Pow(8 * Mathf.Log(wave + 1), 3) + 2;
     }
 }

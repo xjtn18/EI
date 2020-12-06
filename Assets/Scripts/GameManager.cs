@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     //Right now just for GameOver
     public static bool gameOverStatus;
     public GameObject gameOverUI;
+    public GameObject scoreUI;
     
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverStatus = true;
         gameOverUI.SetActive(true);
+        scoreUI.SetActive(false);
         //Debug statement
         Debug.Log("Game Ended");
 
