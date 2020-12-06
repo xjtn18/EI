@@ -28,7 +28,6 @@ public class GameOver : MonoBehaviour
     //Called when Retry button is clicked in the Game Over menu.
     public void Retry()
     {
-		SceneManager.LoadScene("BattleScene");
         Debug.Log("Retry Clicked");
     }
 

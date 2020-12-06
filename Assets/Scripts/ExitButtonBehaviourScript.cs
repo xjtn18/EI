@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Contains information relevant to the player, such as stats, equipment, etc.
-public class PlayerInfo : MonoBehaviour
+public class ExitButtonBehaviourScript : MonoBehaviour
 {
-    //Initializing variables
-    public static int health;
-    public int startingHealth;
-
+    //Exit game method
+    public void doExitGame()
+    {
+        Application.Quit();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        health = startingHealth;
+        
     }
 
     // Update is called once per frame
@@ -21,5 +21,4 @@ public class PlayerInfo : MonoBehaviour
     {
         
     }
-
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6928298271122221260}
   - component: {fileID: 8095992293768590293}
   - component: {fileID: 8972365993632081936}
-  - component: {fileID: 3437707641359869342}
   - component: {fileID: 6928298271122221250}
   - component: {fileID: 456570325730295257}
+  - component: {fileID: 7762223358828023533}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -117,28 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9faf97790426c745b26c1cbae41c366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
-  heartsArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fullHeart: {fileID: 21300000, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
-  emptyHeart: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
---- !u!114 &3437707641359869342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6928298271122221251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f2f493484540743880c4381486d108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 0
-  playerSpriteRenderer: {fileID: 6928298271122221260}
-  monsterList: []
+  startingHealth: 0
 --- !u!95 &6928298271122221250
 Animator:
   serializedVersion: 3
@@ -184,3 +163,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5627165, y: 3.2160902}
   m_EdgeRadius: 0
+--- !u!114 &7762223358828023533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928298271122221251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7b2d8ce9524f2439174493efaad0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
