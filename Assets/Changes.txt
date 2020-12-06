@@ -1,24 +1,11 @@
-# Changed playerMovement script to PlayerMovement, also fixed in actual script to conform to form of other documentation.
-# Combined PlayerMovement Scripts together
-	Updated PlayerMovement code for attackking
+Combined Play and Quit button scripts into one script, named MainMenuScript. Also adjusted it so that Play button utilized SceneFader.
 
-# Combined MonsterDamage into Monster script
-	 Renamed hurt() function to TakeDamage()
+Added functionality for enemies to deal damage to player after being in close range for a certain amount of time. (2 Seconds right now).
 
-# Combined MonsterMovement script
+Added HealthUI to the game. Code for this is located within the PlayerInfo file.
 
-# Added box collider and PlayerAttack script to player
+Added new scene that contains Titlecard with light blue background. (Need to put more work in to animate)
 
-# Fixed attack logic so that it only works if correct key is pressed
+Moved all new art assets into the project directory.
 
-# Attempted to make code easier to read
-# Commented code files
-
-# Fixed bug with key showing up too early if monster approached from the right side
-
-# Added new variable "CorrectKey" to PlayerAttack to check if the correct key was pressed before killing monster
-	Loop reflects this change
-
-# Made WaveController into it's own GameObject, separating it from Spawner.
-	#This change is reflected in the code.
-	
+Added background for battleScene and adjusted background for main menu.

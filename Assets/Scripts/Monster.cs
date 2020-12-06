@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     public int health = 1;
-    public float attackDelay = 10;
-    public float timer = 99;
+    public float attackDelay;
+    private float timer = 99;
 
     [Header("UI Elements")]
     public Image keyBackground;
@@ -19,8 +19,9 @@ public class Monster : MonoBehaviour
     //Chooses a random string to assign to each monster. This string will be what the player needs to press
     //to deal damage to them.
     void Start()
-    { 
-
+    {
+        keyBackground.enabled = false;
+        keyText.enabled = false;
         int index = Random.Range(0, keyTextList.Count);
         keyText.text = keyTextList[index];      
         targetArray = GameObject.FindGameObjectsWithTag("Player");
@@ -40,12 +41,13 @@ public class Monster : MonoBehaviour
                 //Calculated initially when enemy is first spawned to assign them the Player as a target.
                 //Determines when overhead keys are shown
                 float comp_dist =player.transform.position.x - transform.position.x;
-
                 if (Mathf.Abs(comp_dist) <= 5)
                 {
                     keyBackground.enabled = true;
                     keyText.enabled = true;
-
+                    //If enemy is close enough to the player, and has never attacked, we start the coroutine
+                    //and reset the timer to 0. The enemy doesn't attack again until timer is > attackDelay.
+                    //We can set these variables on the monster prefab.
                     if (Mathf.Abs(comp_dist) <= 1.5)
                     {
                         if (timer > attackDelay)
@@ -57,16 +59,7 @@ public class Monster : MonoBehaviour
                         {
                             timer += Time.deltaTime;
                         }
-                      
-                        
-                        
                     }
-                }
-
-                else
-                {
-                    keyBackground.enabled = false;
-                    keyText.enabled = false;
                 }
             }
         }
@@ -84,6 +77,8 @@ public class Monster : MonoBehaviour
         return keyText.text.ToLower();
     }
 
+    //Part of the coroutine. Waits for the number of seconds in the WaitForSeconds method. Then, if
+    //the unit still exists, subtraccts player health by 1.
     private IEnumerator DoAttack()
     {
         yield return new WaitForSeconds(2);

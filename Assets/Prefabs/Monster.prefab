@@ -434,7 +434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   attackDelay: 10
-  timer: 99
   keyBackground: {fileID: 1397215678}
   keyText: {fileID: 279461607}
   targetArray:
