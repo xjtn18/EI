@@ -7,14 +7,19 @@ public class MonsterMovement : MonoBehaviour
 {
     //Initializing Variables
     public new Rigidbody2D rigidbody2D;
+    
     public float monsterSpeed;
     public float followRange = 1.5f;
+    public float minMonsterSpeed = 1.5f;
+    public float maxMonsterSpeed = 4.5f;
+    public float addedSpeed = 1.0f;
     private TargetController tmp;
 
     // Start is called before the first frame update
     void Start()
     {
         tmp = GetComponent<TargetController>();
+        monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
     }
 
 
@@ -27,7 +32,7 @@ public class MonsterMovement : MonoBehaviour
 
     //Helper function that handles whether to move the monster/enemy left or right towards the player
     //Most likely will be updated in later versions
-    void move()
+    public void move()
     {
         
         bool has_target = tmp.target_locked;
@@ -62,5 +67,11 @@ public class MonsterMovement : MonoBehaviour
             rigidbody2D.velocity = new Vector2(0.0F, rigidbody2D.velocity.y);
         }
     }
+
+    public void updateSpeed()
+    {
+        minMonsterSpeed += addedSpeed;
+        maxMonsterSpeed += addedSpeed;
+    } 
 
 }

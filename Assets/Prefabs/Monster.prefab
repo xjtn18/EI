@@ -333,7 +333,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -420,6 +420,9 @@ MonoBehaviour:
   rigidbody2D: {fileID: 6660271806034130342}
   monsterSpeed: 2
   followRange: 1.5
+  minMonsterSpeed: 1.5
+  maxMonsterSpeed: 4.5
+  addedSpeed: 1
 --- !u!114 &724706894
 MonoBehaviour:
   m_ObjectHideFlags: 0

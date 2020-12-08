@@ -78,11 +78,12 @@ public class Monster : MonoBehaviour
         return keyText.text.ToLower();
     }
 
-
     public void AddScore()
     {
         PlayerInfo.score += 100;
     }
+
+
     //Part of the coroutine. Waits for the number of seconds in the WaitForSeconds method. Then, if
     //the unit still exists, subtraccts player health by 1.
     private IEnumerator DoAttack()
@@ -92,8 +93,6 @@ public class Monster : MonoBehaviour
         Debug.Log(PlayerInfo.health.ToString());
         
     }
-
-
 
 }
 
