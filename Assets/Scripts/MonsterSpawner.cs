@@ -7,6 +7,7 @@ public class MonsterSpawner : MonoBehaviour
     //May want to implement using Corountine method
     public Monster monster;
     public SpriteRenderer monsterSprite;
+    public Sprite[] monsterSpriteArray;
     //public Monster monsterReversed;
     public WaveController waveController;
 	private float waveSpawnChance = 0.8f;
@@ -16,8 +17,9 @@ public class MonsterSpawner : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
-        monsterSprite = monster.GetComponent<SpriteRenderer>();
+    {
+        
+        monsterSprite = monster.GetComponent<SpriteRenderer>();        
         waveController = waveController.GetComponent<WaveController>();
 		Random.seed = System.DateTime.Now.Millisecond;
     }       
@@ -25,19 +27,21 @@ public class MonsterSpawner : MonoBehaviour
     // Update is called once per frame
     //Determines whether or not to spawn monsters
     void Update()
-    {
-        
+    {   
         if (waveController.getMonstersAlive() <= 1 && GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
 			float randomNumber = Random.Range(0, 1.0f);
 			if (randomNumber >= waveSpawnChance)
 				waveController.startWave();
-				spawnMonsters(waveController.getMonstersAlive());
+                int randomNum = Random.Range(0, monsterSpriteArray.Length);
+                monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
+                spawnMonsters(waveController.getMonstersAlive());
         }
     }
 
     void spawnMonsters(float numMonsters)
     {
+
         for (int i = 0; i < numMonsters; i++)
         {
             GameObject tmp = GameObject.FindGameObjectsWithTag("Player")[0];

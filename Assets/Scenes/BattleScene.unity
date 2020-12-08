@@ -1620,6 +1620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961f4b935b707464291f90f23f0a6499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wave: -1
+  period: 10
 --- !u!4 &791460448
 Transform:
   m_ObjectHideFlags: 0
@@ -2184,6 +2186,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
+      propertyPath: monsterArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
+      propertyPath: monsterSpriteArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
       propertyPath: monster
       value: 
       objectReference: {fileID: 724706894, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
@@ -2191,6 +2201,18 @@ PrefabInstance:
       propertyPath: waveController
       value: 
       objectReference: {fileID: 791460447}
+    - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
+      propertyPath: monsterSpriteArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: 1018b0ba13578bf459bd254ae1a2be99, type: 3}
+    - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
+      propertyPath: monsterSpriteArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 43b2935ee712b034c85c066a133ccb28, type: 3}
+    - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
+      propertyPath: monsterSpriteArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
     - target: {fileID: 7548439949228279568, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
       propertyPath: m_Name
       value: Spawner
