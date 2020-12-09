@@ -11,6 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     //public Monster monsterReversed;
     public WaveController waveController;
 	private float waveSpawnChance = 0.8f;
+	private List<string> monsterSounds = new List<string>() {"skelly", "slime", "goblin"};
 	
 	
 
@@ -35,9 +36,12 @@ public class MonsterSpawner : MonoBehaviour
 				waveController.startWave();
                 int randomNum = Random.Range(0, monsterSpriteArray.Length);
                 monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
+				monster.type = randomNum;
+				monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
                 spawnMonsters(waveController.getMonstersAlive());
         }
     }
+
 
     void spawnMonsters(float numMonsters)
     {

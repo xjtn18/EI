@@ -7,6 +7,7 @@ public class Monster : MonoBehaviour
     public int health = 1;
     public float attackDelay;
     private float timer = 99;
+	public int type; // 0 is skeleton, 1 is slime, 2 is goblin
 
     [Header("UI Elements")]
     public Image keyBackground;
@@ -70,6 +71,18 @@ public class Monster : MonoBehaviour
     public void TakeDamage()
     {
         health -= 1;
+
+		switch (type) {
+			case 0:
+				AudioManager.PlaySound("bones", 0.3f);
+				break;
+			case 1:
+				AudioManager.PlaySound("splat", 0.8f);
+				break;
+			case 2:
+				AudioManager.PlaySound("slash", 0.8f);
+				break;
+		}
     }
 
     //Returns a string of the monster's Key in lowercase string form

@@ -12,11 +12,19 @@ public class GameOver : MonoBehaviour
     //Intializing public variables.
     public GameObject gameOverUI;
     public string menuScene = "MainMenuScene";
+	private GameObject[] monsterArray;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+		AudioManager.closeMusicFilter(); 
+		
+		//stop all monster movement and sounds
+        monsterArray = GameObject.FindGameObjectsWithTag("Monster");
+		foreach (GameObject m in monsterArray){
+			m.GetComponent<MonsterMovement>().setMoving(false);
+			m.GetComponent<AudioSource>().enabled = false;
+		}
     }
 
     // Update is called once per frame
@@ -29,6 +37,7 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
 		SceneManager.LoadScene("BattleScene");
+		AudioManager.openMusicFilter();
         Debug.Log("Retry Clicked");
     }
 

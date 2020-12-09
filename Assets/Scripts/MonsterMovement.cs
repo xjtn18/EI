@@ -14,12 +14,14 @@ public class MonsterMovement : MonoBehaviour
     public float maxMonsterSpeed = 4.5f;
     public float addedSpeed = 1.0f;
     private TargetController tmp;
+	private bool isMoving;
 
     // Start is called before the first frame update
     void Start()
     {
         tmp = GetComponent<TargetController>();
         monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
+		isMoving = true;
     }
 
 
@@ -27,7 +29,10 @@ public class MonsterMovement : MonoBehaviour
     //Want enemy to move towards player every frame
     void Update()
     {
-        move();
+		//Debug.Log(isMoving);
+		if (isMoving){
+			move();
+		}
     }
 
     //Helper function that handles whether to move the monster/enemy left or right towards the player
@@ -74,4 +79,10 @@ public class MonsterMovement : MonoBehaviour
         maxMonsterSpeed += addedSpeed;
     } 
 
+	public void setMoving(bool newValue){
+		Debug.Log("is this being called");
+		isMoving = newValue;
+	}
+
 }
+
