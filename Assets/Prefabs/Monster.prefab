@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 8976866577354697057}
   - component: {fileID: 724706894}
   - component: {fileID: 3536314284224305202}
+  - component: {fileID: 3824956465547550504}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -334,7 +335,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -418,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a0285999d256549b58edf3a835fe81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monster: {fileID: 724706894}
   rigidbody2D: {fileID: 6660271806034130342}
   monsterSpeed: 2
   followRange: 1.5
@@ -437,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  yPos: -2.3
   attackDelay: 10
   type: 2
   keyBackground: {fileID: 1397215678}
@@ -539,3 +542,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3824956465547550504
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145764129402410543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72ccaf9fbad72ab4080cebdb95ccf6e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//Script handles the behavior of the player's score being "totaled" at a game over state by 
+//executing the coroutine AnimateText.
 public class FinalScoreScript : MonoBehaviour
 {
     public Text scoreText;

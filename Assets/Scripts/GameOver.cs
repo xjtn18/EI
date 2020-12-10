@@ -17,8 +17,8 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		AudioManager.closeMusicFilter(); 
-		
+		AudioManager.closeMusicFilter();
+        
 		//stop all monster movement and sounds
         monsterArray = GameObject.FindGameObjectsWithTag("Monster");
 		foreach (GameObject m in monsterArray){
@@ -38,13 +38,12 @@ public class GameOver : MonoBehaviour
     {
 		SceneManager.LoadScene("BattleScene");
 		AudioManager.openMusicFilter();
-        Debug.Log("Retry Clicked");
+        
     }
 
     //Called when Menu button is clicked in the Game Over menu.
     public void Menu()
     {
         SceneManager.LoadScene("MainMenuScene");
-        Debug.Log("Menu Clicked");
     }
 }
