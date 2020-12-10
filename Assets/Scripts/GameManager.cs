@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
         scoreUI.SetActive(false);
         //Debug statement
-        Debug.Log("Game Ended");
+
 
     }
 }

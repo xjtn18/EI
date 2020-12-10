@@ -10,6 +10,7 @@ public class MonsterSpawner : MonoBehaviour
     public Sprite[] monsterSpriteArray;
     //public Monster monsterReversed;
     public WaveController waveController;
+    
 	private float waveSpawnChance = 0.8f;
 	private const string[] monsterSounds = new string[] {"skelly", "slime", "goblin"};
 	
@@ -21,6 +22,7 @@ public class MonsterSpawner : MonoBehaviour
         
         monsterSprite = monster.GetComponent<SpriteRenderer>();        
         waveController = waveController.GetComponent<WaveController>();
+       
 		Random.seed = System.DateTime.Now.Millisecond;
     }       
 
@@ -29,16 +31,25 @@ public class MonsterSpawner : MonoBehaviour
     //Selects a random sprite from monsterSpriteArray, chooses that sprite to dioplay
     void Update()
     {   
+        if (PlayerInfo.health <= 0)
+        {
+            return;
+        }
+
         if (waveController.getMonstersAlive() <= 1 && GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
 			float randomNumber = Random.Range(0, 1.0f);
-			if (randomNumber >= waveSpawnChance)
-				waveController.startWave();
+            if (randomNumber >= waveSpawnChance)
+            {
+                waveController.startWave();
                 int randomNum = Random.Range(0, monsterSpriteArray.Length);
                 monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
-				monster.type = randomNum;
-				monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
+                monster.type = randomNum;
+                monster.yPos = DetermineYPosition(randomNum);
+                monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
                 spawnMonsters(waveController.getMonstersAlive());
+            }
+
         }
     }
 
@@ -49,7 +60,7 @@ public class MonsterSpawner : MonoBehaviour
         for (int i = 0; i < numMonsters; i++)
         {
             GameObject tmp = GameObject.FindGameObjectsWithTag("Player")[0];
-            Vector2 pos = new Vector2(tmp.transform.position.x, -2.5f);
+            Vector2 pos = new Vector2(tmp.transform.position.x, monster.yPos);
 
             float screenRatio = (float)Screen.width / (float)Screen.height;
             float trueXWidth = Camera.main.orthographicSize * screenRatio;
@@ -68,8 +79,32 @@ public class MonsterSpawner : MonoBehaviour
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
                 //monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
             }
-       
+        
+            
 
+        }
+    }
+
+    public float DetermineYPosition(int monsterType)
+    {
+        if (monsterType == 0)
+        {
+            return -2.5f;
+        }
+
+        else if (monsterType == 1)
+        {
+            return -2.6f;
+        }
+
+        else if (monsterType == 2)
+        {
+            return -2.3f;
+        }
+
+        else
+        {
+            return -2.5f;
         }
     }
 

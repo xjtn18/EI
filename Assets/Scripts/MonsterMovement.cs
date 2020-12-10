@@ -6,6 +6,7 @@ using UnityEngine;
 public class MonsterMovement : MonoBehaviour
 {
     //Initializing Variables
+    public Monster monster;
     public new Rigidbody2D rigidbody2D;
     
     public float monsterSpeed;
@@ -14,11 +15,13 @@ public class MonsterMovement : MonoBehaviour
     public float maxMonsterSpeed = 4.5f;
     public float addedSpeed = 1.0f;
     private TargetController tmp;
-	private bool isMoving;
+    private Animator monsterAnimator;
+    private bool isMoving;
 
     // Start is called before the first frame update
     void Start()
     {
+        monsterAnimator = GetComponent<Animator>();
         tmp = GetComponent<TargetController>();
         monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
 		isMoving = true;
@@ -29,7 +32,6 @@ public class MonsterMovement : MonoBehaviour
     //Want enemy to move towards player every frame
     void Update()
     {
-		//Debug.Log(isMoving);
 		if (isMoving){
 			move();
 		}
@@ -39,9 +41,7 @@ public class MonsterMovement : MonoBehaviour
     //Most likely will be updated in later versions
     public void move()
     {
-        
         bool has_target = tmp.target_locked;
-
         float directionVal = 0f;
 
         //If target is found, we compute distance and then check what it is.
@@ -54,6 +54,7 @@ public class MonsterMovement : MonoBehaviour
 
             if (Mathf.Abs(comp_dist) <= followRange)
             {
+                monsterAnimator.SetTrigger("Idle");
                 rigidbody2D.velocity = new Vector2(0.0F, rigidbody2D.velocity.y);
                 return;
             }
@@ -63,6 +64,18 @@ public class MonsterMovement : MonoBehaviour
             else if (comp_dist < 1f)
                 directionVal = -1.0f;
 
+            if (monster.type == 0)
+            {
+                monsterAnimator.SetTrigger("Walk0");
+            }
+            else if (monster.type == 1)
+            {
+                monsterAnimator.SetTrigger("Walk1");
+            }
+            else if (monster.type == 2)
+            {
+                monsterAnimator.SetTrigger("Walk2");
+            }
             Vector2 moveDir = new Vector2(directionVal * monsterSpeed, rigidbody2D.velocity.y);
             rigidbody2D.velocity = moveDir;
         }
@@ -80,7 +93,6 @@ public class MonsterMovement : MonoBehaviour
     } 
 
 	public void setMoving(bool newValue){
-		Debug.Log("is this being called");
 		isMoving = newValue;
 	}
 

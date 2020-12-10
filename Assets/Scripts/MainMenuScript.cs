@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+//Handles behavior of both Play and Quit buttons for the main menu scene.
 public class MainMenuScript : MonoBehaviour
 {
     public SceneFader fader;

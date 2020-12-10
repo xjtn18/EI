@@ -5,15 +5,19 @@ using UnityEngine.UI;
 public class Monster : MonoBehaviour
 {
     public int health = 1;
+    public float yPos;
     public float attackDelay;
-    private float timer = 99;
+    
 	public int type; // 0 is skeleton, 1 is slime, 2 is goblin
+    //private Animator monsterAnimator;
+    private float timer = 99;
 
     [Header("UI Elements")]
     public Image keyBackground;
     public Text keyText;
     public GameObject[] targetArray;
-    List<string> keyTextList = new List<string> { "J", "K", "L" };
+    List<string> keyTextList = new List<string> {"Q","W","E","R","T","Y","U","I","O","P", 
+                                                "J", "K", "L" };
 
 
     // Start is called before the first frame update
@@ -26,11 +30,18 @@ public class Monster : MonoBehaviour
         int index = Random.Range(0, keyTextList.Count);
         keyText.text = keyTextList[index];      
         targetArray = GameObject.FindGameObjectsWithTag("Player");
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (PlayerInfo.health <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -96,12 +107,11 @@ public class Monster : MonoBehaviour
         PlayerInfo.score += 100;
     }
 
-
     //Part of the coroutine. Waits for the number of seconds in the WaitForSeconds method. Then, if
     //the unit still exists, subtraccts player health by 1.
     private IEnumerator DoAttack()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         PlayerInfo.health--;
         Debug.Log(PlayerInfo.health.ToString());
         

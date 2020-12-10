@@ -5,6 +5,8 @@ using UnityEngine;
 public class WaveController : MonoBehaviour
 {
     public int wave = -1;
+    public Monster monster;
+    private MonsterMovement monsterMovement;
     private float monstersAlive = 0;
     private float monstersToSpawn = 2;
     private float increaseDiffTime = 10.0f;
@@ -14,8 +16,10 @@ public class WaveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        monsterMovement = monster.GetComponent<MonsterMovement>();
+    
     }
+
 
     // Update is called once per frame
     void Update()
@@ -63,6 +67,7 @@ public class WaveController : MonoBehaviour
         monstersAlive = monstersToSpawn;
         IncreaseDifficulty();
         
+        
         //monstersAlive = Mathf.Pow(8 * Mathf.Log(wave + 1), 3) + 2;
     }
 
@@ -72,6 +77,7 @@ public class WaveController : MonoBehaviour
         {
             //Debug.Log("DIFFICULTY INCREASED");
             monstersToSpawn++;
+            monsterMovement.updateSpeed();
             increaseDiffTime = Time.time + period;
         }
     }
