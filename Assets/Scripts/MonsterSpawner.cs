@@ -12,7 +12,7 @@ public class MonsterSpawner : MonoBehaviour
     public WaveController waveController;
     
 	private float waveSpawnChance = 0.8f;
-	private const string[] monsterSounds = new string[] {"skelly", "slime", "goblin"};
+	private readonly string[] monsterSounds = new string[] {"skelly", "slime", "goblin"};
 	
 	
 
@@ -22,7 +22,6 @@ public class MonsterSpawner : MonoBehaviour
         
         monsterSprite = monster.GetComponent<SpriteRenderer>();        
         waveController = waveController.GetComponent<WaveController>();
-       
 		Random.seed = System.DateTime.Now.Millisecond;
     }       
 

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOverStatus = false;
-		new AudioManager(); // start the audio manager
+		AudioManager.start(); // start the audio manager
     }
 
     // Update is called once per frame
