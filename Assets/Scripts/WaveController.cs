@@ -17,7 +17,6 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         monsterMovement = monster.GetComponent<MonsterMovement>();
-    
     }
 
 
@@ -66,16 +65,12 @@ public class WaveController : MonoBehaviour
         wave++;
         monstersAlive = monstersToSpawn;
         IncreaseDifficulty();
-        
-        
-        //monstersAlive = Mathf.Pow(8 * Mathf.Log(wave + 1), 3) + 2;
     }
 
     public void IncreaseDifficulty()
     {
         if (Time.time > increaseDiffTime)
         {
-            //Debug.Log("DIFFICULTY INCREASED");
             monstersToSpawn++;
             monsterMovement.updateSpeed();
             increaseDiffTime = Time.time + period;

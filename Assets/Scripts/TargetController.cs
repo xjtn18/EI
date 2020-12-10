@@ -19,7 +19,6 @@ public class TargetController : MonoBehaviour
         //Calculating distance of the screen 
         float screenRatio = (float)Screen.width / (float)Screen.height;
         float trueXWidth = Camera.main.orthographicSize * screenRatio * 2;
-
         dist = trueXWidth;
     }
 
@@ -67,7 +66,6 @@ public class TargetController : MonoBehaviour
                 enemy_pos = new Vector2(target.transform.position.x, target.transform.position.y);
 
             }
-
         }
         if (target == null)
         {

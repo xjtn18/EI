@@ -7,7 +7,6 @@ public class Monster : MonoBehaviour
     public int health = 1;
     public float yPos;
     public float attackDelay;
-    
 	public int type; // 0 is skeleton, 1 is slime, 2 is goblin
     //private Animator monsterAnimator;
     private float timer = 99;

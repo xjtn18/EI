@@ -8,48 +8,42 @@ public class MonsterSpawner : MonoBehaviour
     public Monster monster;
     public SpriteRenderer monsterSprite;
     public Sprite[] monsterSpriteArray;
-    //public Monster monsterReversed;
     public WaveController waveController;
     
 	private float waveSpawnChance = 0.8f;
 	private List<string> monsterSounds = new List<string>() {"skelly", "slime", "goblin"};
 	
-	
-
     // Start is called before the first frame update
     void Start()
     {
-        
         monsterSprite = monster.GetComponent<SpriteRenderer>();        
         waveController = waveController.GetComponent<WaveController>();
-       
-		Random.seed = System.DateTime.Now.Millisecond;
-    }       
+    }
 
     // Update is called once per frame
     //Determines whether or not to spawn monsters
     //Selects a random sprite from monsterSpriteArray, chooses that sprite to dioplay
     void Update()
-    {   
+    {
         if (PlayerInfo.health <= 0)
         {
             return;
         }
-
-        if (waveController.getMonstersAlive() <= 1 && GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
-			float randomNumber = Random.Range(0, 1.0f);
-            if (randomNumber >= waveSpawnChance)
+            if (waveController.getMonstersAlive() <= 1 && GameObject.FindGameObjectsWithTag("Player").Length == 1)
             {
-                waveController.startWave();
-                int randomNum = Random.Range(0, monsterSpriteArray.Length);
-                monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
-                monster.type = randomNum;
-                monster.yPos = DetermineYPosition(randomNum);
-                monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
-                spawnMonsters(waveController.getMonstersAlive());
+                float randomNumber = Random.Range(0, 1.0f);
+                if (randomNumber >= waveSpawnChance)
+                {
+                    waveController.startWave();
+                    int randomNum = Random.Range(0, monsterSpriteArray.Length);
+                    monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
+                    monster.type = randomNum;
+                    monster.yPos = DetermineYPosition(randomNum);
+                    monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
+                    spawnMonsters(waveController.getMonstersAlive());
+                }
             }
-
         }
     }
 
@@ -61,7 +55,6 @@ public class MonsterSpawner : MonoBehaviour
         {
             GameObject tmp = GameObject.FindGameObjectsWithTag("Player")[0];
             Vector2 pos = new Vector2(tmp.transform.position.x, monster.yPos);
-
             float screenRatio = (float)Screen.width / (float)Screen.height;
             float trueXWidth = Camera.main.orthographicSize * screenRatio;
 
@@ -70,18 +63,13 @@ public class MonsterSpawner : MonoBehaviour
                 pos.x -= trueXWidth + i * 2;
                 monsterSprite.flipX = false;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
-                //monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
             }
             else
             {
                 pos.x += trueXWidth + i * 2;
                 monsterSprite.flipX = true;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
-                //monsterInstance.GetComponent<MonsterMovement>().monsterSpeed = Random.Range(minMonsterSpeed, maxMonsterSpeed);
             }
-        
-            
-
         }
     }
 
@@ -94,7 +82,7 @@ public class MonsterSpawner : MonoBehaviour
 
         else if (monsterType == 1)
         {
-            return -2.6f;
+            return -2.7f;
         }
 
         else if (monsterType == 2)
@@ -107,7 +95,5 @@ public class MonsterSpawner : MonoBehaviour
             return -2.5f;
         }
     }
-
-
 }
 

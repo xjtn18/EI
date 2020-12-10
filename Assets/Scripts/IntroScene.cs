@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 //Handles scene fading for the IntroScene > MainMenuScene
 public class IntroScene : MonoBehaviour
 {

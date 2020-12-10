@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //Initializing variables
     //Right now just for GameOver
-    public static bool gameOverStatus;
+    public bool gameOverStatus = false;
     public GameObject gameOverUI;
     public GameObject scoreUI;
     

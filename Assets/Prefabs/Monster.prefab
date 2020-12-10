@@ -333,7 +333,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 1018b0ba13578bf459bd254ae1a2be99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -361,7 +361,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.375, y: 9.375}
+    oldSize: {x: 8.333333, y: 8.333333}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monster: {fileID: 724706894}
   rigidbody2D: {fileID: 6660271806034130342}
-  monsterSpeed: 2
   followRange: 1.5
+  monsterSpeed: 2
   minMonsterSpeed: 1.5
   maxMonsterSpeed: 4.5
   addedSpeed: 1
@@ -439,9 +439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  yPos: -2.3
+  yPos: -2.5
   attackDelay: 10
-  type: 2
+  type: 0
   keyBackground: {fileID: 1397215678}
   keyText: {fileID: 279461607}
   targetArray:
@@ -456,7 +456,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0050d7d80e9c60f48a870d0e71a4361c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.308
   m_Pitch: 1

@@ -8,12 +8,12 @@ public class MonsterMovement : MonoBehaviour
     //Initializing Variables
     public Monster monster;
     public new Rigidbody2D rigidbody2D;
-    
-    public float monsterSpeed;
     public float followRange = 1.5f;
+    public float monsterSpeed;
     public float minMonsterSpeed = 1.5f;
     public float maxMonsterSpeed = 4.5f;
     public float addedSpeed = 1.0f;
+
     private TargetController tmp;
     private Animator monsterAnimator;
     private bool isMoving;
@@ -47,7 +47,6 @@ public class MonsterMovement : MonoBehaviour
         //If target is found, we compute distance and then check what it is.
         //Sets directionVal to either -1 or 1, we use this to determine going left or right.
         //If no target, ddon't move.
-
         if (has_target)
         {
             float comp_dist = tmp.enemy_pos.x - transform.position.x;
@@ -64,18 +63,8 @@ public class MonsterMovement : MonoBehaviour
             else if (comp_dist < 1f)
                 directionVal = -1.0f;
 
-            if (monster.type == 0)
-            {
-                monsterAnimator.SetTrigger("Walk0");
-            }
-            else if (monster.type == 1)
-            {
-                monsterAnimator.SetTrigger("Walk1");
-            }
-            else if (monster.type == 2)
-            {
-                monsterAnimator.SetTrigger("Walk2");
-            }
+            //Set the correct walking animation here, then move in the correct direction.
+            SetAnimation(monster.type);
             Vector2 moveDir = new Vector2(directionVal * monsterSpeed, rigidbody2D.velocity.y);
             rigidbody2D.velocity = moveDir;
         }
@@ -86,15 +75,36 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
+    //Helper functions
+    
+    //Adds preset value to both min and max monster speed to make the game more difficult.
     public void updateSpeed()
     {
         minMonsterSpeed += addedSpeed;
         maxMonsterSpeed += addedSpeed;
     } 
 
-	public void setMoving(bool newValue){
+	public void setMoving(bool newValue)
+    {
 		isMoving = newValue;
 	}
+
+    //Sets animation based on monster type
+    public void SetAnimation(int monsterType)
+    {
+        if (monsterType == 0)
+        {
+            monsterAnimator.SetTrigger("Walk0");
+        }
+        else if (monsterType == 1)
+        {
+            monsterAnimator.SetTrigger("Walk1");
+        }
+        else if (monsterType == 2)
+        {
+            monsterAnimator.SetTrigger("Walk2");
+        }
+    }
 
 }
 
