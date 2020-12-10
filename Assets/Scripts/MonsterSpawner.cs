@@ -11,14 +11,19 @@ public class MonsterSpawner : MonoBehaviour
     public WaveController waveController;
     
 	private float waveSpawnChance = 0.8f;
-	private List<string> monsterSounds = new List<string>() {"skelly", "slime", "goblin"};
+	private readonly string[] monsterSounds = new string[] {"skelly", "slime", "goblin"};
 	
     // Start is called before the first frame update
     void Start()
     {
         monsterSprite = monster.GetComponent<SpriteRenderer>();        
         waveController = waveController.GetComponent<WaveController>();
+<<<<<<< HEAD
     }
+=======
+		Random.seed = System.DateTime.Now.Millisecond;
+    }       
+>>>>>>> 13a68db34dbb8c7dc994d490fa44ad54ed38131b
 
     // Update is called once per frame
     //Determines whether or not to spawn monsters

@@ -44,6 +44,8 @@ public class GameOver : MonoBehaviour
     //Called when Menu button is clicked in the Game Over menu.
     public void Menu()
     {
+		Destroy(GameObject.Find("MainAudio"));
+		Destroy(GameObject.Find("BattleMusic"));
         SceneManager.LoadScene("MainMenuScene");
     }
 }

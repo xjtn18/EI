@@ -10,32 +10,35 @@ public class AudioManager {
 
 	private static AudioSource[] channels;
 	public static string soundDirName = "Sounds/";
-	private static GameObject mainAudio = GameObject.Find("MainAudio");
-	private static GameObject battleMusic = GameObject.Find("BattleMusic");
+	
 
-
-	// Start is called before the first frame update
-	static AudioManager() {
+	public static void start(){
+		GameObject mainAudio = GameObject.Find("MainAudio");
 		channels = mainAudio.GetComponents<AudioSource>();
 		
 		// set channel 0 for game music
 		PlaySoundOn("outdoor_ambience", 0, 0.2f, true);
 		PlaySoundOn("wind", 1, 0.2f, true);
 		startBattleMusic();
-
 	}
 
-	static public AudioClip GetSound(string soundName){
+
+	public static AudioClip GetSound(string soundName){
 		return Resources.Load<AudioClip>(soundDirName + soundName);
 	}
 
+
 	private static void startBattleMusic(){
+		GameObject battleMusic = GameObject.Find("BattleMusic");
 		AudioSource musicChannel = battleMusic.GetComponent<AudioSource>();
-		musicChannel.clip = Resources.Load<AudioClip>(soundDirName + "major_theme");
-		musicChannel.volume = 0.05f;
-		musicChannel.loop = true;
-		musicChannel.Play();
+		if ( ! musicChannel.isPlaying){
+			musicChannel.clip = Resources.Load<AudioClip>(soundDirName + "major_theme");
+			musicChannel.volume = 0.05f;
+			musicChannel.loop = true;
+			musicChannel.Play();
+		}
 	}
+
 
 	private static AudioSource GetFreeChannel(){
 		foreach (AudioSource c in channels){
@@ -79,10 +82,12 @@ public class AudioManager {
 	}
 
 	public static void closeMusicFilter(){
+		GameObject battleMusic = GameObject.Find("BattleMusic");
 		battleMusic.GetComponent<AudioLowPassFilter>().cutoffFrequency = 2000;
 	}
 
 	public static void openMusicFilter(){
+		GameObject battleMusic = GameObject.Find("BattleMusic");
 		battleMusic.GetComponent<AudioLowPassFilter>().cutoffFrequency = 22000;
 	}	
 }

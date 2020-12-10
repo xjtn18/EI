@@ -83,16 +83,19 @@ public class Monster : MonoBehaviour
         health -= 1;
 
 		switch (type) {
-			case 0:
+			case 0: // skeleton
 				AudioManager.PlaySound("bones", 0.3f);
 				break;
-			case 1:
+			case 1: // slime
 				AudioManager.PlaySound("splat", 0.8f);
 				break;
-			case 2:
+			case 2: // goblin
 				AudioManager.PlaySound("slash", 0.8f);
+				AudioManager.PlaySound("goblin" + Random.Range(1, 5), 0.5f);
 				break;
 		}
+
+		GameObject.Find("WaveController").GetComponent<WaveController>().updateTotal();
     }
 
     //Returns a string of the monster's Key in lowercase string form

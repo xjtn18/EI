@@ -21,7 +21,11 @@ public class WaveController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+	void Update(){
+
+	}
+
+    public void updateTotal()
     {
         monstersAlive = GameObject.FindGameObjectsWithTag("Monster").Length;
     }
