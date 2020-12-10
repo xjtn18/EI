@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     //public Monster monsterReversed;
     public WaveController waveController;
 	private float waveSpawnChance = 0.8f;
-	private List<string> monsterSounds = new List<string>() {"skelly", "slime", "goblin"};
+	private const string[] monsterSounds = new string[] {"skelly", "slime", "goblin"};
 	
 	
 
