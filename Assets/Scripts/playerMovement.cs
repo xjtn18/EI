@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         // "A" and "D" movement keys to move left and right (may remove later)
-        // "J, K, L" for attack as of right now
+        // "J, K, L, etc." for attack as of right now
 
         if (Input.GetKey("a"))
         {
@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     playerAnimator.SetTrigger("Attack");
                     playerAttack.startAttack();
-                    //Debug.Log(" DOING ANIMATION");
                 }
             }
 

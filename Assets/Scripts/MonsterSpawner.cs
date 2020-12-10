@@ -9,25 +9,21 @@ public class MonsterSpawner : MonoBehaviour
     public SpriteRenderer monsterSprite;
     public Sprite[] monsterSpriteArray;
     public WaveController waveController;
-    
-	private float waveSpawnChance = 0.8f;
-	private readonly string[] monsterSounds = new string[] {"skelly", "slime", "goblin"};
-	
+
+    private float waveSpawnChance = 0.8f;
+    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "goblin" };
+
     // Start is called before the first frame update
     void Start()
     {
-        monsterSprite = monster.GetComponent<SpriteRenderer>();        
+        monsterSprite = monster.GetComponent<SpriteRenderer>();
         waveController = waveController.GetComponent<WaveController>();
-<<<<<<< HEAD
-    }
-=======
-		Random.seed = System.DateTime.Now.Millisecond;
-    }       
->>>>>>> 13a68db34dbb8c7dc994d490fa44ad54ed38131b
 
-    // Update is called once per frame
-    //Determines whether or not to spawn monsters
-    //Selects a random sprite from monsterSpriteArray, chooses that sprite to dioplay
+
+        // Update is called once per frame
+        //Determines whether or not to spawn monsters
+        //Selects a random sprite from monsterSpriteArray, chooses that sprite to dioplay
+    }
     void Update()
     {
         if (PlayerInfo.health <= 0)
@@ -101,4 +97,5 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 }
+
 
