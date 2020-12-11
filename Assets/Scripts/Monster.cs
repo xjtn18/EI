@@ -8,7 +8,7 @@ public class Monster : MonoBehaviour
     public float yPos;
     public float attackDelay;
 	public int type; // 0 is skeleton, 1 is slime, 2 is goblin
-    //private Animator monsterAnimator;
+    private Animator monsterAnimator;
     private float timer = 99;
 
     [Header("UI Elements")]
@@ -29,6 +29,7 @@ public class Monster : MonoBehaviour
         int index = Random.Range(0, keyTextList.Count);
         keyText.text = keyTextList[index];      
         targetArray = GameObject.FindGameObjectsWithTag("Player");
+        monsterAnimator = GetComponent<Animator>();
 
     }
 
@@ -114,8 +115,22 @@ public class Monster : MonoBehaviour
     private IEnumerator DoAttack()
     {
         yield return new WaitForSeconds(1.5f);
+        if (type == 0)
+        {
+            monsterAnimator.SetTrigger("Attack0");
+        }
+        else if(type == 1)
+        {
+            monsterAnimator.SetTrigger("Attack1");
+        }
+        else if (type == 2)
+        {
+            monsterAnimator.SetTrigger("Attack2");
+        }
+        yield return new WaitForSeconds(0.7f);
+        monsterAnimator.SetTrigger("IdleFromAttack");
         PlayerInfo.health--;
-        Debug.Log(PlayerInfo.health.ToString());
+
         
     }
 

@@ -35,6 +35,10 @@ public class MonsterMovement : MonoBehaviour
 		if (isMoving){
 			move();
 		}
+        else
+        {
+            Debug.Log("Got here");
+        }
     }
 
     //Helper function that handles whether to move the monster/enemy left or right towards the player
@@ -53,7 +57,7 @@ public class MonsterMovement : MonoBehaviour
 
             if (Mathf.Abs(comp_dist) <= followRange)
             {
-                monsterAnimator.SetTrigger("Idle");
+                monsterAnimator.SetTrigger("IdleFromWalk");
                 rigidbody2D.velocity = new Vector2(0.0F, rigidbody2D.velocity.y);
                 return;
             }

@@ -38,8 +38,8 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     waveController.startWave();
                     int randomNum = Random.Range(0, monsterSpriteArray.Length);
-                    monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
-                    monster.type = randomNum;
+                    monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[2];
+                    monster.type = 2;
                     monster.yPos = DetermineYPosition(randomNum);
                     monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
                     spawnMonsters(waveController.getMonstersAlive());

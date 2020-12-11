@@ -2360,22 +2360,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 724706894, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: yPos
-      value: -2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 724706894, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1064459961149770856, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
-    - target: {fileID: 1064459961149770856, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1145764129402410543, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -2386,11 +2370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2827812485833908685, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -11.02
       objectReference: {fileID: 0}
     - target: {fileID: 2827812485833908685, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2827812485833908685, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2427,18 +2411,6 @@ PrefabInstance:
     - target: {fileID: 2827812485833908685, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536314284224305202, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398410273553644992, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 9.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 7398410273553644992, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 9.375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c77b5c3975465347a9876110ed512c6, type: 3}
