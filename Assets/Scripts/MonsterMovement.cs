@@ -53,8 +53,10 @@ public class MonsterMovement : MonoBehaviour
 
             if (Mathf.Abs(comp_dist) <= followRange)
             {
+				isMoving = false;
                 monsterAnimator.SetTrigger("Idle");
                 rigidbody2D.velocity = new Vector2(0.0F, rigidbody2D.velocity.y);
+				GetComponent<AudioSource>().Stop(); // stop movement sound
                 return;
             }
 

@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     public WaveController waveController;
 
     private float waveSpawnChance = 0.8f;
-    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "goblin" };
+    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "goblin_run" };
 
     // Start is called before the first frame update
     void Start()
@@ -42,18 +42,22 @@ public class MonsterSpawner : MonoBehaviour
                     monster.type = randomNum;
                     monster.yPos = DetermineYPosition(randomNum);
                     monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
-                    spawnMonsters(waveController.getMonstersAlive());
+                    StartCoroutine(spawnMonsters(waveController.getMonstersAlive()));
                 }
             }
         }
     }
 
 
-    void spawnMonsters(float numMonsters)
+    IEnumerator spawnMonsters(float numMonsters)
     {
 
         for (int i = 0; i < numMonsters; i++)
         {
+			// wait random short amount of time to prevent monsters from being in perfect sync
+			float randomWaitTime = Random.Range(0f, 1f);
+			yield return new WaitForSeconds(randomWaitTime);
+
             GameObject tmp = GameObject.FindGameObjectsWithTag("Player")[0];
             Vector2 pos = new Vector2(tmp.transform.position.x, monster.yPos);
             float screenRatio = (float)Screen.width / (float)Screen.height;
@@ -96,6 +100,7 @@ public class MonsterSpawner : MonoBehaviour
             return -2.5f;
         }
     }
+
 }
 
 
