@@ -30,4 +30,9 @@ public class MainMenuScript : MonoBehaviour
         Debug.Log("QUIT PRESSED");
         Application.Quit();
     }
+
+    public void CreditButton()
+    {
+        fader.FadeTo("CreditScene");
+    }
 }
