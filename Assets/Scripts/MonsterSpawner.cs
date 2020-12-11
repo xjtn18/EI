@@ -36,20 +36,23 @@ public class MonsterSpawner : MonoBehaviour
                 if (randomNumber >= waveSpawnChance)
                 {
                     waveController.startWave();
-                    
-                    spawnMonsters(waveController.getMonstersAlive());
+                    StartCoroutine(spawnMonsters(waveController.getMonstersAlive()));
                 }
             }
         }
     }
 
 
-    void spawnMonsters(float numMonsters)
+    IEnumerator spawnMonsters(float numMonsters)
     {
 
         for (int i = 0; i < numMonsters; i++)
         {
             DetermineMonster();
+            // wait random short amount of time to prevent monsters from being in perfect sync
+            float randomWaitTime = Random.Range(0f, 1f);
+            yield return new WaitForSeconds(randomWaitTime);
+
             GameObject tmp = GameObject.FindGameObjectsWithTag("Player")[0];
             Vector2 pos = new Vector2(tmp.transform.position.x, monster.yPos);
             float screenRatio = (float)Screen.width / (float)Screen.height;
