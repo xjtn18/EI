@@ -27,6 +27,7 @@ public class PlayerInfo : MonoBehaviour
     {
         //Handles the healthUI display. Chooses whether to display fullHeart sprite or emptyHeart
         //depending on player health.
+
         for (int i = 0; i < heartsArray.Length; i++)
         {
             if (i < health)

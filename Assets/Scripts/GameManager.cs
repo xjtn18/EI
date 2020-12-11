@@ -36,15 +36,17 @@ public class GameManager : MonoBehaviour
 
         if (PlayerInfo.health == 0)
         {
-            GameOver();
+
+            StartCoroutine(GameOver());
         }
     }
 
 
 
     //GameOver functions triggers the UI to become active.
-    void GameOver()
+    private IEnumerator GameOver()
     {
+        yield return new WaitForSeconds(1.0f);
         gameOverStatus = true;
         gameOverUI.SetActive(true);
         scoreUI.SetActive(false);

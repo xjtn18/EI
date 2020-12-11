@@ -108,6 +108,10 @@ public class MonsterMovement : MonoBehaviour
         {
             monsterAnimator.SetTrigger("Walk2");
         }
+        else if (monsterType == 3)
+        {
+            monsterAnimator.SetTrigger("Walk3");
+        }
     }
 
 }

@@ -2471,7 +2471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
       propertyPath: monsterSpriteArray.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
       propertyPath: monster
@@ -2493,6 +2493,10 @@ PrefabInstance:
       propertyPath: monsterSpriteArray.Array.data[2]
       value: 
       objectReference: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
+    - target: {fileID: 7015305854383631955, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
+      propertyPath: monsterSpriteArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 4723107735738678597, guid: f8b30c2afe165d645b54d500a9c30862, type: 3}
     - target: {fileID: 7548439949228279568, guid: 7fcdc6be71b11424a960170391ca00a8, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -3339,6 +3343,10 @@ PrefabInstance:
     - target: {fileID: 6928298271122221263, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095992293768590293, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
+      propertyPath: attackDuration
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8972365993632081936, guid: 98a1ea7b5464d354298832548ff4d19f, type: 3}
       propertyPath: heartsArray.Array.data[0]
