@@ -61,14 +61,16 @@ public class MonsterSpawner : MonoBehaviour
             if (i % 2 == 0)
             {
                 //pos.x -= trueXWidth + i * 2;
-                pos.x -= 18 + (i * 2);
+                pos.x -= Random.Range(17, 25); 
+                    //18 + (i * 2);
                 monsterSprite.flipX = false;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
             }
             else
             {
                 //pos.x += trueXWidth + i * 2;
-                pos.x += 18 + (i * 2);
+                pos.x += Random.Range(17, 25);
+                //18 + (i * 2);
                 monsterSprite.flipX = true;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
             }
