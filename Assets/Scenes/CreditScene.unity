@@ -1147,7 +1147,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Thanks to  Tiny Studios,  Blackspire, Luiz Melo,  and Pixelmush for providing
+  m_Text: 'Thanks to Tiny Studios, Blackspire, Luiz Melo, and Pixelmush for providing
     free assets '
 --- !u!222 &1384197801
 CanvasRenderer:

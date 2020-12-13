@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     public WaveController waveController;
 
     private float waveSpawnChance = 0.8f;
-    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "goblin_run" };
+    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "goblin" };
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +38,8 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     waveController.startWave();
                     int randomNum = Random.Range(0, monsterSpriteArray.Length);
-                    monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[randomNum];
-                    monster.type = randomNum;
+                    monster.GetComponent<SpriteRenderer>().sprite = monsterSpriteArray[2];
+                    monster.type = 2;
                     monster.yPos = DetermineYPosition(randomNum);
                     monster.GetComponent<AudioSource>().clip = AudioManager.GetSound(monsterSounds[randomNum]);
                     StartCoroutine(spawnMonsters(waveController.getMonstersAlive()));
