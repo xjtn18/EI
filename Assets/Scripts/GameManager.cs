@@ -27,16 +27,15 @@ public class GameManager : MonoBehaviour
         }
             
         //Simulates being hit. Calls GameOver() if health is 0.
-        if (Input.GetKeyDown("g"))
+        /*if (Input.GetKeyDown("g"))
         {
             PlayerInfo.health--;
             //Debug statement
             Debug.Log(PlayerInfo.health.ToString());
-        }
+        }*/
 
         if (PlayerInfo.health == 0)
         {
-
             StartCoroutine(GameOver());
         }
     }

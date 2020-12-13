@@ -17,7 +17,8 @@ public class Monster : MonoBehaviour
     public GameObject[] targetArray;
 	private string attackSound;
     List<string> keyTextList = new List<string> {"Q","W","E","R","T","Y","U","I","O","P", 
-                                                "J", "K", "L" };
+                                                "F", "G", "H", "J", "K", "L",
+                                                "Z", "X", "C", "V", "B", "N", "M"};
 
 
     // Start is called before the first frame update
