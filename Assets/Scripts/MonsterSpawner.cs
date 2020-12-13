@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     public WaveController waveController;
 
     private float waveSpawnChance = 0.8f;
-    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "goblin_run", "slime" };
+    private readonly string[] monsterSounds = new string[] { "skelly", "slime", "footsteps", "footsteps"};
 
     // Start is called before the first frame update
     void Start()

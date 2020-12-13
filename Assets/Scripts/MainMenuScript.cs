@@ -8,6 +8,8 @@ public class MainMenuScript : MonoBehaviour
 {
     public SceneFader fader;
     public string sceneToLoad;
+	public AudioSource menuAudio;
+	public AudioSource buttonSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +24,22 @@ public class MainMenuScript : MonoBehaviour
 
     public void PlayButton()
     {
+		buttonSound.Play();
         fader.FadeTo(sceneToLoad);
+		StartCoroutine(FadeAudioSource.StartFade(menuAudio, 1, 0));
     }
 
     public void QuitButton()
     {
         Debug.Log("QUIT PRESSED");
+		buttonSound.Play();
         Application.Quit();
     }
 
     public void CreditButton()
     {
+		buttonSound.Play();
         fader.FadeTo("CreditScene");
+		StartCoroutine(FadeAudioSource.StartFade(menuAudio, 2, 0));
     }
 }

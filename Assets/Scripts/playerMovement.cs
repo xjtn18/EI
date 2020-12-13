@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer playerSpriteRenderer;
     public GameObject[] monsterList;
     private Animator playerAnimator;
+	private bool hasDied = false;
 
 
 
@@ -27,9 +28,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame  
     void Update()
     {
-        if (PlayerInfo.health <= 0)
+        if (PlayerInfo.health <= 0 && !hasDied)
         {
+			hasDied = true;
             playerAnimator.SetTrigger("PlayerDie");
+			AudioManager.PlaySound("death", 0.3f);
             return;
         }
         //Move this part of the script somewehere else later

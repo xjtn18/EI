@@ -36,6 +36,7 @@ public class GameOver : MonoBehaviour
     //Called when Retry button is clicked in the Game Over menu.
     public void Retry()
     {
+		AudioManager.PlaySound("button", 0.7f);
 		SceneManager.LoadScene("BattleScene");
 		AudioManager.openMusicFilter();
         
@@ -44,6 +45,7 @@ public class GameOver : MonoBehaviour
     //Called when Menu button is clicked in the Game Over menu.
     public void Menu()
     {
+		AudioManager.PlaySound("button", 0.7f);
 		Destroy(GameObject.Find("MainAudio"));
 		Destroy(GameObject.Find("BattleMusic"));
         SceneManager.LoadScene("MainMenuScene");

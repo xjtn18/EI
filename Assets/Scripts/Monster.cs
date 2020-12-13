@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     public Image keyBackground;
     public Text keyText;
     public GameObject[] targetArray;
+	private string attackSound;
     List<string> keyTextList = new List<string> {"Q","W","E","R","T","Y","U","I","O","P", 
                                                 "J", "K", "L" };
 
@@ -92,10 +93,10 @@ public class Monster : MonoBehaviour
 				break;
 			case 2: // goblin
 				AudioManager.PlaySound("slash", 0.8f);
-				AudioManager.PlaySound("goblin" + Random.Range(1, 5), 0.5f);
+				AudioManager.PlayRandom("goblin", 5, 0.5f);
 				break;
-            case 3:
-                AudioManager.PlaySound("slash", 0.8f);
+            case 3: // mushroom
+				AudioManager.PlayRandom("punch", 3, 0.25f);
                 break;
 		}
 
@@ -118,23 +119,31 @@ public class Monster : MonoBehaviour
     private IEnumerator DoAttack()
     {
         yield return new WaitForSeconds(1.5f);
-        if (type == 0)
+        if (type == 0) // skeleton
         {
             monsterAnimator.SetTrigger("Attack0");
+			attackSound = "knife";
         }
-        else if(type == 1)
+        else if(type == 1) // slime
         {
             monsterAnimator.SetTrigger("Attack1");
+			attackSound = "plop";
         }
-        else if (type == 2)
+        else if (type == 2) // goblin
         {
             monsterAnimator.SetTrigger("Attack2");
+			attackSound = "knife";
         }
-        else if (type == 3)
+        else if (type == 3) // mushroom
         {
             monsterAnimator.SetTrigger("Attack3");
+			attackSound = "swipe";
         }
-        yield return new WaitForSeconds(0.7f);
+
+        yield return new WaitForSeconds(0.7f); // wait for animation
+
+		AudioManager.PlaySound(attackSound);
+		AudioManager.PlaySound("heart_lost", 0.3f);
         monsterAnimator.SetTrigger("IdleFromAttack");
         PlayerInfo.health--;
 

@@ -33,7 +33,7 @@ public class AudioManager {
 		AudioSource musicChannel = battleMusic.GetComponent<AudioSource>();
 		if ( ! musicChannel.isPlaying){
 			musicChannel.clip = Resources.Load<AudioClip>(soundDirName + "major_theme");
-			musicChannel.volume = 0.05f;
+			musicChannel.volume = 0.1f;
 			musicChannel.loop = true;
 			musicChannel.Play();
 		}
@@ -69,11 +69,11 @@ public class AudioManager {
 	}
 
 
-	public static void PlayRandom(string[] soundNames){
+	public static void PlayRandom(string soundPrefix, int numSounds, float volume = 0.5f){
 		// plays a random sound given a list of sound names
 		AudioSource channel; try {channel = GetFreeChannel();} catch {return;}
-		int idx = Random.Range(0, soundNames.Length - 1);
-		PlaySound(soundNames[idx]);
+		int idx = Random.Range(1, numSounds);
+		PlaySound(soundPrefix + idx, volume);
 	}
 
 
