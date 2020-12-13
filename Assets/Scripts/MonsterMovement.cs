@@ -10,8 +10,8 @@ public class MonsterMovement : MonoBehaviour
     public new Rigidbody2D rigidbody2D;
     public float followRange = 1.5f;
     public float monsterSpeed;
-    public float minMonsterSpeed = 1.5f;
-    public float maxMonsterSpeed = 4.5f;
+    public float minMonsterSpeed = 3.5f;
+    public float maxMonsterSpeed = 7.5f;
     public float addedSpeed = 1.0f;
 
     private TargetController tmp;
@@ -53,7 +53,7 @@ public class MonsterMovement : MonoBehaviour
 
             if (Mathf.Abs(comp_dist) <= followRange)
             {
-				//isMoving = false;
+				
                 monsterAnimator.SetTrigger("IdleFromWalk");
                 rigidbody2D.velocity = new Vector2(0.0F, rigidbody2D.velocity.y);
 				GetComponent<AudioSource>().Stop(); // stop movement sound

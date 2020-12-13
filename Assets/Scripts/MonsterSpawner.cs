@@ -60,13 +60,15 @@ public class MonsterSpawner : MonoBehaviour
 
             if (i % 2 == 0)
             {
-                pos.x -= trueXWidth + i * 2;
+                //pos.x -= trueXWidth + i * 2;
+                pos.x -= 18 + (i * 2);
                 monsterSprite.flipX = false;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
             }
             else
             {
-                pos.x += trueXWidth + i * 2;
+                //pos.x += trueXWidth + i * 2;
+                pos.x += 18 + (i * 2);
                 monsterSprite.flipX = true;
                 var monsterInstance = Instantiate(monster, pos, new Quaternion(0, 0, 0, 1));
             }
@@ -77,27 +79,27 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (monsterType == 0)
         {
-            return -2.5f;
+            return -1.4f;
         }
 
         else if (monsterType == 1)
         {
-            return -2.7f;
+            return -1.3f;
         }
 
         else if (monsterType == 2)
         {
-            return -2.3f;
+            return -1.1f;
         }
 
         else if (monsterType == 3)
         {
-            return -2.5f;
+            return -0.8f;
         }
 
         else
         {
-            return -2.5f;
+            return -1.5f;
         }
     }
 
