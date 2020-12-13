@@ -94,6 +94,9 @@ public class Monster : MonoBehaviour
 				AudioManager.PlaySound("slash", 0.8f);
 				AudioManager.PlaySound("goblin" + Random.Range(1, 5), 0.5f);
 				break;
+            case 3:
+                AudioManager.PlaySound("slash", 0.8f);
+                break;
 		}
 
 		GameObject.Find("WaveController").GetComponent<WaveController>().updateTotal();
@@ -126,6 +129,10 @@ public class Monster : MonoBehaviour
         else if (type == 2)
         {
             monsterAnimator.SetTrigger("Attack2");
+        }
+        else if (type == 3)
+        {
+            monsterAnimator.SetTrigger("Attack3");
         }
         yield return new WaitForSeconds(0.7f);
         monsterAnimator.SetTrigger("IdleFromAttack");

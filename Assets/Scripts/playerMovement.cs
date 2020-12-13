@@ -27,8 +27,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame  
     void Update()
     {
-
-
+        if (PlayerInfo.health <= 0)
+        {
+            playerAnimator.SetTrigger("PlayerDie");
+            return;
+        }
         //Move this part of the script somewehere else later
         monsterList = GameObject.FindGameObjectsWithTag("Monster");
         List<string> keyTextList = new List<string>();
@@ -41,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
 
         // "A" and "D" movement keys to move left and right (may remove later)
         // "J, K, L, etc." for attack as of right now
@@ -66,7 +68,16 @@ public class PlayerMovement : MonoBehaviour
                 playerAttack.keyPressed = validKey;
                 if (playerAttack.canStartAttack())
                 {
-                    playerAnimator.SetTrigger("Attack");
+                    int randomNum = Random.Range(1, 3);
+                    if (randomNum == 1)
+                    {
+                        playerAnimator.SetTrigger("Attack1");
+                    }
+                    else if  (randomNum == 2)
+                    {
+                        playerAnimator.SetTrigger("Attack2");
+                    }
+                    
                     playerAttack.startAttack();
                 }
             }

@@ -57,14 +57,8 @@ public class MonsterMovement : MonoBehaviour
 
             if (Mathf.Abs(comp_dist) <= followRange)
             {
-<<<<<<< HEAD
-				isMoving = false;
-                monsterAnimator.SetTrigger("Idle");
-=======
                 monsterAnimator.SetTrigger("IdleFromWalk");
->>>>>>> 68fe550fae927687db13b1ec69f38e9dbd87b6f4
                 rigidbody2D.velocity = new Vector2(0.0F, rigidbody2D.velocity.y);
-				GetComponent<AudioSource>().Stop(); // stop movement sound
                 return;
             }
 
@@ -113,6 +107,10 @@ public class MonsterMovement : MonoBehaviour
         else if (monsterType == 2)
         {
             monsterAnimator.SetTrigger("Walk2");
+        }
+        else if (monsterType == 3)
+        {
+            monsterAnimator.SetTrigger("Walk3");
         }
     }
 
